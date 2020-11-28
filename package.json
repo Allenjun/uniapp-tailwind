@@ -56,9 +56,12 @@
     "@dcloudio/uni-quickapp-webview": "^2.0.0-alpha-29920201117001",
     "@dcloudio/uni-stat": "^2.0.0-alpha-29920201117001",
     "@vue/shared": "^3.0.0",
+    "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
+    "postcss": "^7.0.35",
     "regenerator-runtime": "^0.12.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "vue": "^2.6.11",
     "vuex": "^3.2.0"
   },
@@ -80,7 +83,12 @@
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
+    "node-sass": "^4.14.1",
+    "postcss-class-rename": "^1.0.1",
     "postcss-comment": "^2.0.0",
+    "postcss-remove-selectors": "^2.0.1",
+    "postcss-scss": "^3.0.4",
+    "sass-loader": "^7.3.1",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
