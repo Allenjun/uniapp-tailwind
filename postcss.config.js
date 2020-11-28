@@ -1,4 +1,5 @@
 const path = require("path");
+
 // Purgecss 编译时裁剪css样式大小
 const purgecss = require("@fullhuman/postcss-purgecss")({
   // Specify the paths to all of the template files in your project
@@ -29,7 +30,7 @@ module.exports = {
         return id;
       },
     }),
-    require("@dcloudio/vue-cli-plugin-uni/packages/postcss"),
+    // require("@dcloudio/vue-cli-plugin-uni/packages/postcss"),
     require("tailwindcss"),
     require("autoprefixer")({
       remove: process.env.UNI_PLATFORM !== "h5",
@@ -40,7 +41,7 @@ module.exports = {
           // 使用postcss-class-name 包将小程序不支持的类名转换为支持的类名
           require("postcss-class-rename")({
             "\\\\:": "--",
-            "\\\\/": "--",
+            "\\\\/": "_",
           }),
         ]
       : [

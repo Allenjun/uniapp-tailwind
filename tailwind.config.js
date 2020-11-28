@@ -1,13 +1,15 @@
+const plugin = require("tailwindcss/plugin");
 module.exports = {
-  darkMode: false,
+  darkMode: 'class',
   purge: {
     content: ["./src/**/*.vue"],
   },
   corePlugins: [
+    "container",
     "alignContent",
-    "alignItem",
+    "alignItems",
     "backgroundColor",
-    "backgroundOpacity",
+    // "backgroundOpacity",
     "backgroundPosition",
     "backgroundRepeat",
     "backgroundSize",
@@ -15,7 +17,7 @@ module.exports = {
     "borderRadius",
     "borderStyle",
     "borderWidth",
-    "boxShadow",
+    // "boxShadow",
     "boxSizing",
     "clear",
     "cursor",
@@ -31,6 +33,7 @@ module.exports = {
     "height",
     "inset",
     "justifyItems",
+    "justifyContent",
     "lineHeight",
     "margin",
     "maxHeight",
@@ -74,7 +77,7 @@ module.exports = {
     alignSelf: [],
     appearance: [],
     backgroundAttachment: [],
-    backgroundColor: [],
+    backgroundColor: ["dark", "group-hover", "hover", "focus"],
     backgroundPosition: [],
     backgroundRepeat: [],
     backgroundSize: [],
@@ -124,7 +127,7 @@ module.exports = {
     stroke: [],
     tableLayout: [],
     textAlign: [],
-    textColor: [],
+    textColor: ["dark", "group-hover", "hover", "focus"],
     textDecoration: [],
     textTransform: [],
     userSelect: [],
@@ -135,8 +138,16 @@ module.exports = {
     wordBreak: [],
     zIndex: [],
   },
-  plugins: [],
   theme: {
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+      xl: "1280px",
+    },
     spacing: {
       0: "0rpx",
       px: "2rpx",
@@ -197,4 +208,20 @@ module.exports = {
     },
     extend: {},
   },
+  plugins: [
+    plugin(function({ addComponents }) {
+      const buttons = {
+        ".shadow": {
+          boxShadow:
+            "0 2rpx 6rpx 0 rgba(0, 0, 0, 0.1), 0 2rpx 4rpx 0 rgba(0, 0, 0, 0.06)",
+        },
+        ".shadow-lg": {
+          boxShadow:
+            "0 20rpx 30rpx -6rpx rgba(0, 0, 0, 0.1), 0 8rpx 12rpx -4rpx rgba(0, 0, 0, 0.05)",
+        },
+      };
+
+      addComponents(buttons);
+    }),
+  ],
 };
